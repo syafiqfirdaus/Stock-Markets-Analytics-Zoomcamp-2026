@@ -1,0 +1,36 @@
+# Core numerical and tabular analysis
+numpy
+pandas
+scipy
+statsmodels
+scikit-learn
+
+# Market and macroeconomic data
+yfinance
+pandas-datareader
+fredapi
+alpha-vantage
+finnhub-python
+
+# Web data extraction
+requests
+beautifulsoup4
+lxml
+html5lib
+
+# Finance analytics and technical indicators
+ta
+quantstats
+
+# Visualization and notebooks
+matplotlib
+seaborn
+plotly
+jupyterlab
+ipykernel
+
+# Data files and local analytics
+openpyxl
+pyarrow
+duckdb
+polars
