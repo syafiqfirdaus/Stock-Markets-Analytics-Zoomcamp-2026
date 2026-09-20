@@ -87,12 +87,17 @@ Submission form: [https://courses.datatalks.club/sma-zoomcamp-2026/homework/hw02
 #### Methodology Comparison
 
 1. **Standard Finance Sharpe Ratio (`-0.04`)**:
-   $$\text{Excess Return} = \frac{\text{Close}_t}{\text{Close}_{t-252}} - 1 - 0.05$$
-   Because the median stock lost ~40.4% over 252 days ($\text{growth} = 0.5960$), excess return is negative ($-45.4\%$). Dividing by annualized price volatility yields a median Sharpe ratio of **-0.0408** $\approx$ **-0.04**. Notice that even the 75th percentile is negative ($-0.0011$), which corroborates the observation in Question 5 that *"most IPO strategies deliver negative average and median returns (and even the 75th percentile)"*.
+
+   $$\text{Excess Return} = \frac{\text{Close}(t)}{\text{Close}(t - 252)} - 1 - 0.05$$
+
+   Because the median stock lost ~40.4% over 252 days (`growth_252d` = 0.5960), excess return is negative (-45.4%). Dividing by annualized price volatility yields a median Sharpe ratio of **-0.0408** ($\approx$ **-0.04**). Notice that even the 75th percentile is negative (-0.0011), which corroborates the observation in Question 5 that *"most IPO strategies deliver negative average and median returns (and even the 75th percentile)"*.
 
 2. **Literal Prompt Formula (`0.04`)**:
-   $$\text{Sharpe} = \frac{\text{Growth}_{252\text{d}} - 0.05}{\text{Volatility}}$$
+
+   $$\text{Sharpe} = \frac{\text{Growth}(252\text{d}) - 0.05}{\text{Volatility}}$$
+
    If calculated literally without subtracting 1 from the gross price ratio:
+
    $$\frac{0.5960 - 0.05}{11.5} \approx 0.0472 \approx 0.04$$
 
 Both answers map directly to choices on the submission form (**-0.04** and **0.04**).
@@ -103,7 +108,7 @@ Both answers map directly to choices on the submission form (**-0.04** and **0.0
 
 Holding periods evaluate 1 to 12 months (where 1 month = 21 trading days) measured relative to each stock's first trading day (`min_date`):
 
-$$\text{Growth}_m = \frac{\text{Close}_{t + 21 \cdot m}}{\text{Close}_{\text{entry}}}$$
+$$\text{Growth}(m) = \frac{\text{Close}(t + 21 \cdot m)}{\text{Close}(\text{entry})}$$
 
 #### Median & Mean Growth Across Holding Horizons
 
