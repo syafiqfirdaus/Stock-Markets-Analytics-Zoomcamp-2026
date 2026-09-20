@@ -71,8 +71,8 @@ Submission form: [https://courses.datatalks.club/sma-zoomcamp-2026/homework/hw02
 - **Universe**: 2025 IPOs from [IPOScoop 2025 Pricings](https://www.iposcoop.com/2025-pricings/) with `Offer Date < 2025-09-01` and non-zero return (146 candidate tickers).
 - **Active Tickers**: 132 active tickers on Yahoo Finance (14 delisted or missing data).
 - **Milestone**: 131 stocks reached the 252 trading day milestone as of 11 September 2026.
-- **Risk-Free Rate**: $R_f = 5.0\%$ (0.05).
-- **Annualized Volatility**: $\text{volatility} = \text{rolling}_{30}(\text{Close}).\text{std}() \times \sqrt{252}$.
+- **Risk-Free Rate**: $R_f = 5.0\%$ ($0.05$).
+- **Annualized Volatility**: $\text{Volatility} = \sigma_{30}(\text{Close}) \times \sqrt{252}$ (implemented as `Close.rolling(30).std() * np.sqrt(252)`).
 
 #### Cross-Sectional Statistics as of 11 September 2026
 
@@ -81,8 +81,8 @@ Submission form: [https://courses.datatalks.club/sma-zoomcamp-2026/homework/hw02
 | **Close Price ($)** | 132 | 19.38 | 0.02 | 1.95 | **8.15** | 16.64 | 290.00 |
 | **growth_252d** | 131 | 1.0578 | 0.0010 | 0.1410 | **0.5960** | 1.0456 | 33.64 |
 | **volatility ($)** | 132 | 27.42 | 0.00 | 2.29 | **7.88** | 23.95 | 627.70 |
-| **Sharpe (Excess Return)** | 128 | 26,710.43 | -2.5342 | -0.1862 | **-0.0408** | -0.0011 | $\infty$ |
-| **Sharpe (Literal Prompt)** | 128 | 32,779.17 | -0.0401 | 0.0113 | **0.0472** | 0.1238 | $\infty$ |
+| **Sharpe (Excess Return)** | 128 | 26,710.43 | -2.5342 | -0.1862 | **-0.0408** | -0.0011 | inf |
+| **Sharpe (Literal Prompt)** | 128 | 32,779.17 | -0.0401 | 0.0113 | **0.0472** | 0.1238 | inf |
 
 #### Methodology Comparison
 
@@ -91,8 +91,9 @@ Submission form: [https://courses.datatalks.club/sma-zoomcamp-2026/homework/hw02
    Because the median stock lost ~40.4% over 252 days ($\text{growth} = 0.5960$), excess return is negative ($-45.4\%$). Dividing by annualized price volatility yields a median Sharpe ratio of **-0.0408** $\approx$ **-0.04**. Notice that even the 75th percentile is negative ($-0.0011$), which corroborates the observation in Question 5 that *"most IPO strategies deliver negative average and median returns (and even the 75th percentile)"*.
 
 2. **Literal Prompt Formula (`0.04`)**:
-   $$\text{Sharpe} = \frac{\text{growth\_252d} - 0.05}{\text{volatility}}$$
-   If calculated literally without subtracting 1 from the gross price ratio, $\frac{0.5960 - 0.05}{11.5} \approx$ **0.0472** $\approx$ **0.04**.
+   $$\text{Sharpe} = \frac{\text{Growth}_{252\text{d}} - 0.05}{\text{Volatility}}$$
+   If calculated literally without subtracting 1 from the gross price ratio:
+   $$\frac{0.5960 - 0.05}{11.5} \approx 0.0472 \approx 0.04$$
 
 Both answers map directly to choices on the submission form (**-0.04** and **0.04**).
 
@@ -102,7 +103,7 @@ Both answers map directly to choices on the submission form (**-0.04** and **0.0
 
 Holding periods evaluate 1 to 12 months (where 1 month = 21 trading days) measured relative to each stock's first trading day (`min_date`):
 
-$$\text{future\_growth\_m} = \frac{\text{Close}_{t + 21 \times m}}{\text{Close}_{\text{entry}}}$$
+$$\text{Growth}_m = \frac{\text{Close}_{t + 21 \cdot m}}{\text{Close}_{\text{entry}}}$$
 
 #### Median & Mean Growth Across Holding Horizons
 
@@ -138,14 +139,14 @@ $$\text{future\_growth\_m} = \frac{\text{Close}_{t + 21 \times m}}{\text{Close}_
 - **Position Size**: $1,000 per signal.
 - **Holding Period**: 30 calendar/forward days (`growth_future_30d`).
 - **Net Income**:
-  $$\text{Net Income} = \$1,000 \times \sum (\text{growth\_future\_30d} - 1)$$
+  $$\text{Net Income} = 1000 \times \sum (\text{Growth}_{30\text{d}} - 1)$$
 
 #### Backtest Results
 
 | Metric | Result |
 | :--- | :---: |
 | **Total Signals Triggered** | **5,206** |
-| **Win Rate ($\text{growth} > 1$)** | **55.13%** |
+| **Win Rate (`growth_future_30d` > 1)** | **55.13%** |
 | **Average 30-Day Return** | **+1.26%** |
 | **Net Income ($)** | **$65,805.59** |
 | **Net Income ($ thousands)** | **$65.81k** |
