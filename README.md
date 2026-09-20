@@ -5,3 +5,5 @@ Python-based stock-market analysis covering data collection, statistical analysi
 ## Coursework
 
 - [Module 1: Introduction and Data Sources](01-intro-and-data-sources/README.md) — environment setup, reproducible Homework 1 calculations, answers, and findings.
+- [Module 2: DataFrame Analysis](02-dataframe-analysis/README.md) — IPO web scraping, Sharpe ratio analysis, holding horizon evaluation, and RSI oversold backtest for Homework 2.
+
