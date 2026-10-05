@@ -6,4 +6,5 @@ Python-based stock-market analysis covering data collection, statistical analysi
 
 - [Module 1: Introduction and Data Sources](01-intro-and-data-sources/README.md) — environment setup, reproducible Homework 1 calculations, answers, and findings.
 - [Module 2: DataFrame Analysis](02-dataframe-analysis/README.md) — IPO web scraping, Sharpe ratio analysis, holding horizon evaluation, and RSI oversold backtest for Homework 2.
+- [Module 3: Time Series Modeling](03-modeling/README.md) — seasonal calendar dummy variables, manual hand-crafted rules, unique ML predictive contributions, and Decision Tree hyperparameter tuning for Homework 3.
 
