@@ -1,0 +1,9 @@
+# Exclude large binary datasets from GitHub (per Project Instructions)
+data/*.parquet
+data/*.csv
+data/*.brotli
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.env
+

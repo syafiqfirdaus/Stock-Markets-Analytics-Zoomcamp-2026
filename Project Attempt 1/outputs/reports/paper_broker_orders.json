@@ -1,0 +1,134 @@
+[
+  {
+    "timestamp_utc": "2026-11-10T13:11:38Z",
+    "signal_date": "2026-11-09",
+    "symbol": "NVDA",
+    "peer_hedge_reference": "AMD",
+    "qty": 58,
+    "side": "buy",
+    "type": "market",
+    "time_in_force": "gtc",
+    "order_class": "bracket",
+    "reference_close_price": 178.67,
+    "notional_usd": 10416.67,
+    "take_profit": {
+      "limit_price": "207.26"
+    },
+    "stop_loss": {
+      "stop_price": "162.59"
+    },
+    "ml_ensemble_prob": 0.8012,
+    "pair_spread_zscore_20d": -3.013,
+    "broker_status": "SIMULATED_BRACKET_ORDER_LOGGED"
+  },
+  {
+    "timestamp_utc": "2026-11-10T13:11:38Z",
+    "signal_date": "2026-11-09",
+    "symbol": "MCHP",
+    "peer_hedge_reference": "MPWR",
+    "qty": 169,
+    "side": "buy",
+    "type": "market",
+    "time_in_force": "gtc",
+    "order_class": "bracket",
+    "reference_close_price": 61.5,
+    "notional_usd": 10416.67,
+    "take_profit": {
+      "limit_price": "71.34"
+    },
+    "stop_loss": {
+      "stop_price": "55.97"
+    },
+    "ml_ensemble_prob": 0.8064,
+    "pair_spread_zscore_20d": -2.583,
+    "broker_status": "SIMULATED_BRACKET_ORDER_LOGGED"
+  },
+  {
+    "timestamp_utc": "2026-11-10T13:11:38Z",
+    "signal_date": "2026-11-09",
+    "symbol": "TSM",
+    "peer_hedge_reference": "ASML",
+    "qty": 26,
+    "side": "buy",
+    "type": "market",
+    "time_in_force": "gtc",
+    "order_class": "bracket",
+    "reference_close_price": 388.62,
+    "notional_usd": 10416.67,
+    "take_profit": {
+      "limit_price": "450.8"
+    },
+    "stop_loss": {
+      "stop_price": "353.64"
+    },
+    "ml_ensemble_prob": 0.8184,
+    "pair_spread_zscore_20d": -1.121,
+    "broker_status": "SIMULATED_BRACKET_ORDER_LOGGED"
+  },
+  {
+    "timestamp_utc": "2026-11-10T13:11:38Z",
+    "signal_date": "2026-11-09",
+    "symbol": "INTC",
+    "peer_hedge_reference": "QCOM",
+    "qty": 175,
+    "side": "buy",
+    "type": "market",
+    "time_in_force": "gtc",
+    "order_class": "bracket",
+    "reference_close_price": 59.37,
+    "notional_usd": 10416.67,
+    "take_profit": {
+      "limit_price": "68.87"
+    },
+    "stop_loss": {
+      "stop_price": "54.03"
+    },
+    "ml_ensemble_prob": 0.7863,
+    "pair_spread_zscore_20d": -1.35,
+    "broker_status": "SIMULATED_BRACKET_ORDER_LOGGED"
+  },
+  {
+    "timestamp_utc": "2026-11-10T13:11:38Z",
+    "signal_date": "2026-11-09",
+    "symbol": "ENTG",
+    "peer_hedge_reference": "TER",
+    "qty": 74,
+    "side": "buy",
+    "type": "market",
+    "time_in_force": "gtc",
+    "order_class": "bracket",
+    "reference_close_price": 140.06,
+    "notional_usd": 10416.67,
+    "take_profit": {
+      "limit_price": "162.47"
+    },
+    "stop_loss": {
+      "stop_price": "127.45"
+    },
+    "ml_ensemble_prob": 0.8165,
+    "pair_spread_zscore_20d": -0.904,
+    "broker_status": "SIMULATED_BRACKET_ORDER_LOGGED"
+  },
+  {
+    "timestamp_utc": "2026-11-10T13:11:38Z",
+    "signal_date": "2026-11-09",
+    "symbol": "ADI",
+    "peer_hedge_reference": "TXN",
+    "qty": 26,
+    "side": "buy",
+    "type": "market",
+    "time_in_force": "gtc",
+    "order_class": "bracket",
+    "reference_close_price": 394.66,
+    "notional_usd": 10416.67,
+    "take_profit": {
+      "limit_price": "457.81"
+    },
+    "stop_loss": {
+      "stop_price": "359.14"
+    },
+    "ml_ensemble_prob": 0.8142,
+    "pair_spread_zscore_20d": -0.834,
+    "broker_status": "SIMULATED_BRACKET_ORDER_LOGGED"
+  }
+]

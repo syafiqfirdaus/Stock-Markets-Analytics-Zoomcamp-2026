@@ -1,0 +1,26 @@
+# Project Attempt 1 - US & Taiwan Semiconductor Cointegration & ML Strategy
+# Core Numerical & Scientific Stack
+numpy>=2.0.0
+pandas>=2.2.0
+scipy>=1.13.0
+statsmodels>=0.14.0
+scikit-learn>=1.5.0
+xgboost>=2.1.0
+
+# Financial & Macroeconomic Data Providers
+yfinance>=0.2.50
+pandas-datareader>=0.10.0
+requests>=2.31.0
+ta>=0.11.0
+
+# Storage & Serialization
+pyarrow>=16.0.0
+
+# Visualization & Interactive Notebooks
+matplotlib>=3.9.0
+seaborn>=0.13.0
+jupyterlab>=4.2.0
+ipykernel>=6.29.0
+nbformat>=5.10.0
+nbclient>=0.10.0
+

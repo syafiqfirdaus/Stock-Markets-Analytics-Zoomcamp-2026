@@ -1,0 +1,17 @@
+Model_Family,Hyperparameters,Val_Precision,Val_Accuracy,Val_ROC_AUC,Positive_Calls_Val
+DecisionTree,"max_depth=2, min_samples_leaf=50",0.3873,0.4443,0.4526,1606
+DecisionTree,"max_depth=3, min_samples_leaf=50",0.4841,0.4655,0.4702,2640
+DecisionTree,"max_depth=4, min_samples_leaf=50",0.5045,0.4744,0.4549,3578
+DecisionTree,"max_depth=5, min_samples_leaf=50",0.5126,0.4798,0.4588,4040
+DecisionTree,"max_depth=6, min_samples_leaf=50",0.5193,0.4846,0.463,4296
+DecisionTree,"max_depth=8, min_samples_leaf=50",0.5266,0.4885,0.4625,4054
+DecisionTree,"max_depth=10, min_samples_leaf=50",0.5469,0.4998,0.483,3878
+RandomForest,"max_depth=4, min_samples_leaf=50",0.441,0.4449,0.4581,2510
+RandomForest,"max_depth=6, min_samples_leaf=40",0.4569,0.4374,0.4666,2388
+RandomForest,"max_depth=8, min_samples_leaf=30",0.444,0.4378,0.4659,2642
+RandomForest,"max_depth=10, min_samples_leaf=25",0.4415,0.4401,0.4727,2453
+RandomForest,"max_depth=12, min_samples_leaf=20",0.444,0.4442,0.4736,2502
+XGBoost,"max_depth=3, lr=0.03, reg_lambda=5.0",0.5821,0.4792,0.4927,1694
+XGBoost,"max_depth=4, lr=0.03, reg_lambda=5.0",0.5707,0.4889,0.5086,1612
+XGBoost,"max_depth=5, lr=0.05, reg_lambda=5.0",0.599,0.501,0.54,1681
+XGBoost,"max_depth=6, lr=0.05, reg_lambda=5.0",0.594,0.4963,0.5303,1611

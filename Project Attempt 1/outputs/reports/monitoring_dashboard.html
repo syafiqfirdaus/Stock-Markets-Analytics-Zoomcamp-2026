@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>US & Taiwan Semiconductor Cointegration + ML Trading Monitor</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 24px; background: #f8fafc; color: #0f172a; }
+    h1, h2 { color: #1e293b; }
+    .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px; margin-bottom: 28px; }
+    .kpi-card { background: white; border-radius: 10px; padding: 16px 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); border-left: 4px solid #2563eb; }
+    .kpi-label { font-size: 12px; text-transform: uppercase; color: #64748b; font-weight: 600; }
+    .kpi-value { font-size: 24px; font-weight: 700; color: #0f172a; margin-top: 6px; }
+    .kpi-sub { font-size: 12px; color: #16a34a; margin-top: 4px; }
+    .section-card { background: white; border-radius: 10px; padding: 20px; margin-bottom: 24px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); overflow-x: auto; }
+    .styled-table { border-collapse: collapse; width: 100%; font-size: 13px; }
+    .styled-table th { background-color: #1e293b; color: #ffffff; text-align: left; padding: 10px; }
+    .styled-table td { padding: 8px 10px; border-bottom: 1px solid #e2e8f0; }
+    .styled-table tr:nth-of-type(even) { background-color: #f8fafc; }
+  </style>
+</head>
+<body>
+  <h1>US & Taiwan Semiconductor Supply-Chain Cointegration + ML Strategy Monitor</h1>
+  <p><strong>Test Evaluation Window:</strong> 2024-06-12 to 2026-10-26 (2.37 yrs) | <strong>Active Live Signals:</strong> 6 positions</p>
+
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-label">Strategy Final Equity ($50k Init)</div>
+      <div class="kpi-value">$121,260.93</div>
+      <div class="kpi-sub">Total Return: +142.52%</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Strategy Annualized CAGR</div>
+      <div class="kpi-value">45.30%</div>
+      <div class="kpi-sub">vs SOXX: 33.70% | S&P 500: 15.81%</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Sharpe / Sortino Ratio</div>
+      <div class="kpi-value">4.20 / 9.97</div>
+      <div class="kpi-sub">vs SOXX Sharpe: 0.79 | S&P 500: 0.73</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Max Drawdown</div>
+      <div class="kpi-value">-21.14%</div>
+      <div class="kpi-sub">vs SOXX Max DD: -41.36%</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Win Rate & Executed Trades</div>
+      <div class="kpi-value">55.6%</div>
+      <div class="kpi-sub">257 trades (Avg +1.87%/trade)</div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <h2>Latest 10-Trading-Day Live Signals & Bracket Order Sizing</h2>
+    <table border="1" class="dataframe styled-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Date</th>
+      <th>Ticker</th>
+      <th>sub_vertical</th>
+      <th>peer_ticker</th>
+      <th>Close</th>
+      <th>prob_rf</th>
+      <th>prob_xgb</th>
+      <th>prob_mlp</th>
+      <th>prob_ensemble</th>
+      <th>pred_reg_growth_10d</th>
+      <th>pair_spread_zscore_20d</th>
+      <th>pair_adf_stat_proxy_60d</th>
+      <th>tw_supply_chain_index_10d</th>
+      <th>sec_rev_yoy</th>
+      <th>conviction_score</th>
+      <th>Recommended_Action</th>
+      <th>Allocated_Capital_USD</th>
+      <th>Order_Shares</th>
+      <th>Stop_Loss_Price</th>
+      <th>Take_Profit_Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2026-11-09</td>
+      <td>NVDA</td>
+      <td>Foundry_Logic</td>
+      <td>AMD</td>
+      <td>178.67</td>
+      <td>0.6531</td>
+      <td>0.8804</td>
+      <td>0.9606</td>
+      <td>0.8012</td>
+      <td>1.0349</td>
+      <td>-3.0128</td>
+      <td>0.5438</td>
+      <td>-0.1264</td>
+      <td>0.0800</td>
+      <td>1.0286</td>
+      <td>BUY_LONG_10D</td>
+      <td>10416.67</td>
+      <td>58</td>
+      <td>162.59</td>
+      <td>207.26</td>
+    </tr>
+    <tr>
+      <td>2026-11-09</td>
+      <td>MCHP</td>
+      <td>Analog_Power_RF</td>
+      <td>MPWR</td>
+      <td>61.50</td>
+      <td>0.6472</td>
+      <td>0.8657</td>
+      <td>0.9875</td>
+      <td>0.8064</td>
+      <td>1.0282</td>
+      <td>-2.5828</td>
+      <td>-0.0831</td>
+      <td>-0.1264</td>
+      <td>0.4219</td>
+      <td>1.0003</td>
+      <td>BUY_LONG_10D</td>
+      <td>10416.67</td>
+      <td>169</td>
+      <td>55.97</td>
+      <td>71.34</td>
+    </tr>
+    <tr>
+      <td>2026-11-09</td>
+      <td>TSM</td>
+      <td>Foundry_Logic</td>
+      <td>ASML</td>
+      <td>388.62</td>
+      <td>0.6633</td>
+      <td>0.8785</td>
+      <td>0.9998</td>
+      <td>0.8184</td>
+      <td>1.0352</td>
+      <td>-1.1214</td>
+      <td>-1.6184</td>
+      <td>-0.1264</td>
+      <td>2.3538</td>
+      <td>0.8954</td>
+      <td>BUY_LONG_10D</td>
+      <td>10416.67</td>
+      <td>26</td>
+      <td>353.64</td>
+      <td>450.80</td>
+    </tr>
+    <tr>
+      <td>2026-11-09</td>
+      <td>INTC</td>
+      <td>Foundry_Logic</td>
+      <td>QCOM</td>
+      <td>59.37</td>
+      <td>0.6877</td>
+      <td>0.8762</td>
+      <td>0.9091</td>
+      <td>0.7863</td>
+      <td>1.0588</td>
+      <td>-1.3500</td>
+      <td>-0.1738</td>
+      <td>-0.1264</td>
+      <td>0.2095</td>
+      <td>0.8816</td>
+      <td>BUY_LONG_10D</td>
+      <td>10416.67</td>
+      <td>175</td>
+      <td>54.03</td>
+      <td>68.87</td>
+    </tr>
+    <tr>
+      <td>2026-11-09</td>
+      <td>ENTG</td>
+      <td>WFE_Equipment</td>
+      <td>TER</td>
+      <td>140.06</td>
+      <td>0.6566</td>
+      <td>0.8800</td>
+      <td>0.9974</td>
+      <td>0.8165</td>
+      <td>1.0218</td>
+      <td>-0.9040</td>
+      <td>-1.8123</td>
+      <td>-0.1264</td>
+      <td>0.2461</td>
+      <td>0.8762</td>
+      <td>BUY_LONG_10D</td>
+      <td>10416.67</td>
+      <td>74</td>
+      <td>127.45</td>
+      <td>162.47</td>
+    </tr>
+    <tr>
+      <td>2026-11-09</td>
+      <td>ADI</td>
+      <td>Analog_Power_RF</td>
+      <td>TXN</td>
+      <td>394.66</td>
+      <td>0.6628</td>
+      <td>0.8711</td>
+      <td>0.9951</td>
+      <td>0.8142</td>
+      <td>1.0139</td>
+      <td>-0.8344</td>
+      <td>-0.9105</td>
+      <td>-0.1264</td>
+      <td>0.3963</td>
+      <td>0.8683</td>
+      <td>BUY_LONG_10D</td>
+      <td>10416.67</td>
+      <td>26</td>
+      <td>359.14</td>
+      <td>457.81</td>
+    </tr>
+    <tr>
+      <td>2026-11-09</td>
+      <td>TER</td>
+      <td>WFE_Equipment</td>
+      <td>ENTG</td>
+      <td>246.00</td>
+      <td>0.6769</td>
+      <td>0.8911</td>
+      <td>0.9514</td>
+      <td>0.8055</td>
+      <td>1.0431</td>
+      <td>-0.9294</td>
+      <td>0.4328</td>
+      <td>-0.1264</td>
+      <td>0.4404</td>
+      <td>0.8672</td>
+      <td>HOLD_WAIT</td>
+      <td>0.0000</td>
+      <td>0</td>
+      <td>223.86</td>
+      <td>285.36</td>
+    </tr>
+    <tr>
+      <td>2026-11-09</td>
+      <td>MRVL</td>
+      <td>Foundry_Logic</td>
+      <td>AVGO</td>
+      <td>154.60</td>
+      <td>0.6850</td>
+      <td>0.8898</td>
+      <td>0.8674</td>
+      <td>0.7731</td>
+      <td>1.0523</td>
+      <td>-0.9401</td>
+      <td>-0.8939</td>
+      <td>-0.1264</td>
+      <td>0.3655</td>
+      <td>0.8357</td>
+      <td>HOLD_WAIT</td>
+      <td>0.0000</td>
+      <td>0</td>
+      <td>140.69</td>
+      <td>179.34</td>
+    </tr>
+    <tr>
+      <td>2026-11-09</td>
+      <td>MU</td>
+      <td>Memory_Storage</td>
+      <td>WDC</td>
+      <td>733.15</td>
+      <td>0.6638</td>
+      <td>0.8823</td>
+      <td>0.9987</td>
+      <td>0.8192</td>
+      <td>1.0513</td>
+      <td>-0.3509</td>
+      <td>-1.0783</td>
+      <td>-0.1264</td>
+      <td>2.5633</td>
+      <td>0.8346</td>
+      <td>HOLD_WAIT</td>
+      <td>0.0000</td>
+      <td>0</td>
+      <td>667.17</td>
+      <td>850.45</td>
+    </tr>
+    <tr>
+      <td>2026-11-09</td>
+      <td>ON</td>
+      <td>Analog_Power_RF</td>
+      <td>NXPI</td>
+      <td>69.11</td>
+      <td>0.6568</td>
+      <td>0.8726</td>
+      <td>0.9886</td>
+      <td>0.8108</td>
+      <td>1.0193</td>
+      <td>-0.0930</td>
+      <td>-2.2068</td>
+      <td>-0.1264</td>
+      <td>0.1105</td>
+      <td>0.8056</td>
+      <td>HOLD_WAIT</td>
+      <td>0.0000</td>
+      <td>0</td>
+      <td>62.89</td>
+      <td>80.17</td>
+    </tr>
+    <tr>
+      <td>2026-11-09</td>
+      <td>LRCX</td>
+      <td>WFE_Equipment</td>
+      <td>AMAT</td>
+      <td>221.31</td>
+      <td>0.6686</td>
+      <td>0.8914</td>
+      <td>0.9982</td>
+      <td>0.8226</td>
+      <td>1.0451</td>
+      <td>0.1721</td>
+      <td>-1.3705</td>
+      <td>-0.1264</td>
+      <td>0.5438</td>
+      <td>0.7962</td>
+      <td>HOLD_WAIT</td>
+      <td>0.0000</td>
+      <td>0</td>
+      <td>201.39</td>
+      <td>256.72</td>
+    </tr>
+    <tr>
+      <td>2026-11-09</td>
+      <td>AMAT</td>
+      <td>WFE_Equipment</td>
+      <td>LRCX</td>
+      <td>370.55</td>
+      <td>0.6596</td>
+      <td>0.8747</td>
+      <td>0.9952</td>
+      <td>0.8146</td>
+      <td>1.0387</td>
+      <td>0.4808</td>
+      <td>-1.0577</td>
+      <td>-0.1264</td>
+      <td>0.2483</td>
+      <td>0.7635</td>
+      <td>HOLD_WAIT</td>
+      <td>0.0000</td>
+      <td>0</td>
+      <td>337.20</td>
+      <td>429.84</td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+
+  <div class="section-card">
+    <h2>Vector Simulation Strategy Comparison (Out-of-Sample Test Set)</h2>
+    <table border="1" class="dataframe styled-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Strategy_Predictor</th>
+      <th>Test_Trades</th>
+      <th>Avg_Trades_Per_Active_Day</th>
+      <th>Q75_Daily_Trades</th>
+      <th>Required_Capital_USD</th>
+      <th>Sim1_Gross_Rev_USD</th>
+      <th>Sim1_Fees_USD</th>
+      <th>Sim1_Net_Rev_USD</th>
+      <th>Sim1_Win_Rate_Pct</th>
+      <th>Sim1_CAGR</th>
+      <th>Sim1_Annual_Return_Pct</th>
+      <th>Sim1_Sharpe</th>
+      <th>Sim2_RiskManaged_Net_Rev_USD</th>
+      <th>Sim2_Win_Rate_Pct</th>
+      <th>Sim2_CAGR</th>
+      <th>Sim2_Annual_Return_Pct</th>
+      <th>Sim2_Sharpe</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>pred8_mlp_dnn</td>
+      <td>2577</td>
+      <td>6.39</td>
+      <td>9.0</td>
+      <td>90000.0</td>
+      <td>66354.67</td>
+      <td>-5154.0</td>
+      <td>61200.67</td>
+      <td>58.21</td>
+      <td>1.2446</td>
+      <td>24.46</td>
+      <td>0.712</td>
+      <td>82961.21</td>
+      <td>58.21</td>
+      <td>1.3172</td>
+      <td>31.72</td>
+      <td>1.044</td>
+    </tr>
+    <tr>
+      <td>pred12_coint_ml_hybrid</td>
+      <td>1651</td>
+      <td>4.40</td>
+      <td>6.0</td>
+      <td>60000.0</td>
+      <td>37427.56</td>
+      <td>-3302.0</td>
+      <td>34125.56</td>
+      <td>58.15</td>
+      <td>1.2091</td>
+      <td>20.91</td>
+      <td>0.670</td>
+      <td>48053.71</td>
+      <td>58.15</td>
+      <td>1.2816</td>
+      <td>28.16</td>
+      <td>1.048</td>
+    </tr>
+    <tr>
+      <td>pred11_ensemble_consensus</td>
+      <td>2213</td>
+      <td>6.43</td>
+      <td>9.0</td>
+      <td>90000.0</td>
+      <td>55983.28</td>
+      <td>-4426.0</td>
+      <td>51557.28</td>
+      <td>58.52</td>
+      <td>1.2105</td>
+      <td>21.05</td>
+      <td>0.631</td>
+      <td>71031.95</td>
+      <td>58.52</td>
+      <td>1.2781</td>
+      <td>27.81</td>
+      <td>0.946</td>
+    </tr>
+    <tr>
+      <td>pred0_manual_coint_zscore</td>
+      <td>1433</td>
+      <td>2.71</td>
+      <td>4.0</td>
+      <td>40000.0</td>
+      <td>23537.34</td>
+      <td>-2866.0</td>
+      <td>20671.34</td>
+      <td>55.48</td>
+      <td>1.1921</td>
+      <td>19.21</td>
+      <td>0.701</td>
+      <td>31501.84</td>
+      <td>55.48</td>
+      <td>1.2776</td>
+      <td>27.76</td>
+      <td>1.224</td>
+    </tr>
+    <tr>
+      <td>pred6_xgb</td>
+      <td>8914</td>
+      <td>17.04</td>
+      <td>22.0</td>
+      <td>220000.0</td>
+      <td>115279.15</td>
+      <td>-17828.0</td>
+      <td>97451.15</td>
+      <td>53.11</td>
+      <td>1.1673</td>
+      <td>16.73</td>
+      <td>0.625</td>
+      <td>166862.52</td>
+      <td>53.11</td>
+      <td>1.2688</td>
+      <td>26.88</td>
+      <td>1.222</td>
+    </tr>
+    <tr>
+      <td>pred4_clf_dt_best</td>
+      <td>10532</td>
+      <td>21.67</td>
+      <td>22.0</td>
+      <td>220000.0</td>
+      <td>94971.10</td>
+      <td>-21064.0</td>
+      <td>73907.10</td>
+      <td>51.82</td>
+      <td>1.1299</td>
+      <td>12.99</td>
+      <td>0.453</td>
+      <td>161702.24</td>
+      <td>51.82</td>
+      <td>1.2616</td>
+      <td>26.16</td>
+      <td>1.163</td>
+    </tr>
+    <tr>
+      <td>pred3_manual_macro_yield</td>
+      <td>2804</td>
+      <td>6.40</td>
+      <td>9.0</td>
+      <td>90000.0</td>
+      <td>46905.05</td>
+      <td>-5608.0</td>
+      <td>41297.05</td>
+      <td>54.03</td>
+      <td>1.1727</td>
+      <td>17.27</td>
+      <td>0.780</td>
+      <td>58940.40</td>
+      <td>54.03</td>
+      <td>1.2367</td>
+      <td>23.67</td>
+      <td>1.215</td>
+    </tr>
+    <tr>
+      <td>pred10_xgb_high_prob_58</td>
+      <td>7961</td>
+      <td>15.92</td>
+      <td>22.0</td>
+      <td>220000.0</td>
+      <td>95716.03</td>
+      <td>-15922.0</td>
+      <td>79794.03</td>
+      <td>52.64</td>
+      <td>1.1394</td>
+      <td>13.94</td>
+      <td>0.535</td>
+      <td>143960.46</td>
+      <td>52.64</td>
+      <td>1.2365</td>
+      <td>23.65</td>
+      <td>1.103</td>
+    </tr>
+    <tr>
+      <td>pred5_rf_best</td>
+      <td>9461</td>
+      <td>17.65</td>
+      <td>22.0</td>
+      <td>220000.0</td>
+      <td>84479.61</td>
+      <td>-18922.0</td>
+      <td>65557.61</td>
+      <td>50.92</td>
+      <td>1.1163</td>
+      <td>11.63</td>
+      <td>0.417</td>
+      <td>141651.20</td>
+      <td>50.92</td>
+      <td>1.2332</td>
+      <td>23.32</td>
+      <td>1.031</td>
+    </tr>
+    <tr>
+      <td>pred1_manual_tw_lead_lag</td>
+      <td>2114</td>
+      <td>6.29</td>
+      <td>8.0</td>
+      <td>80000.0</td>
+      <td>37241.79</td>
+      <td>-4228.0</td>
+      <td>33013.79</td>
+      <td>55.01</td>
+      <td>1.1569</td>
+      <td>15.69</td>
+      <td>0.705</td>
+      <td>45707.14</td>
+      <td>55.01</td>
+      <td>1.2100</td>
+      <td>21.00</td>
+      <td>1.076</td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+
+  <div class="section-card">
+    <h2>Supply-Chain Pair Cointegration Augmented Dickey-Fuller (ADF) Stationarity Summary</h2>
+    <table border="1" class="dataframe styled-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Pair</th>
+      <th>Sub_Vertical</th>
+      <th>ADF_Statistic</th>
+      <th>ADF_p_value</th>
+      <th>Is_Stationary_p05</th>
+      <th>Median_60d_Return_Corr</th>
+      <th>Median_HalfLife_Days</th>
+      <th>Observations</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>LRCX / AMAT</td>
+      <td>WFE_Equipment</td>
+      <td>-11.3226</td>
+      <td>0.0</td>
+      <td>True</td>
+      <td>0.8538</td>
+      <td>6.07</td>
+      <td>3987</td>
+    </tr>
+    <tr>
+      <td>AVGO / MRVL</td>
+      <td>Foundry_Logic</td>
+      <td>-10.7927</td>
+      <td>0.0</td>
+      <td>True</td>
+      <td>0.5305</td>
+      <td>5.68</td>
+      <td>3987</td>
+    </tr>
+    <tr>
+      <td>MU / WDC</td>
+      <td>Memory_Storage</td>
+      <td>-10.4428</td>
+      <td>0.0</td>
+      <td>True</td>
+      <td>0.6275</td>
+      <td>6.03</td>
+      <td>3987</td>
+    </tr>
+    <tr>
+      <td>ASML / TSM</td>
+      <td>WFE_Equipment</td>
+      <td>-10.4407</td>
+      <td>0.0</td>
+      <td>True</td>
+      <td>0.5901</td>
+      <td>5.04</td>
+      <td>3987</td>
+    </tr>
+    <tr>
+      <td>KLAC / ASML</td>
+      <td>WFE_Equipment</td>
+      <td>-10.3784</td>
+      <td>0.0</td>
+      <td>True</td>
+      <td>0.7193</td>
+      <td>5.98</td>
+      <td>3987</td>
+    </tr>
+    <tr>
+      <td>MCHP / MPWR</td>
+      <td>Analog_Power_RF</td>
+      <td>-10.3154</td>
+      <td>0.0</td>
+      <td>True</td>
+      <td>0.6929</td>
+      <td>6.63</td>
+      <td>3987</td>
+    </tr>
+    <tr>
+      <td>TXN / ADI</td>
+      <td>Analog_Power_RF</td>
+      <td>-10.1795</td>
+      <td>0.0</td>
+      <td>True</td>
+      <td>0.8132</td>
+      <td>5.95</td>
+      <td>3987</td>
+    </tr>
+    <tr>
+      <td>NVDA / AMD</td>
+      <td>Foundry_Logic</td>
+      <td>-9.5858</td>
+      <td>0.0</td>
+      <td>True</td>
+      <td>0.5530</td>
+      <td>6.29</td>
+      <td>3987</td>
+    </tr>
+    <tr>
+      <td>NXPI / ON</td>
+      <td>Analog_Power_RF</td>
+      <td>-9.4613</td>
+      <td>0.0</td>
+      <td>True</td>
+      <td>0.7168</td>
+      <td>5.32</td>
+      <td>3987</td>
+    </tr>
+    <tr>
+      <td>QCOM / INTC</td>
+      <td>Foundry_Logic</td>
+      <td>-8.9778</td>
+      <td>0.0</td>
+      <td>True</td>
+      <td>0.4679</td>
+      <td>7.26</td>
+      <td>3987</td>
+    </tr>
+    <tr>
+      <td>TER / ENTG</td>
+      <td>WFE_Equipment</td>
+      <td>-8.7837</td>
+      <td>0.0</td>
+      <td>True</td>
+      <td>0.6615</td>
+      <td>7.22</td>
+      <td>3987</td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

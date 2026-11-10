@@ -1,0 +1,12 @@
+Pair,Sub_Vertical,ADF_Statistic,ADF_p_value,Is_Stationary_p05,Median_60d_Return_Corr,Median_HalfLife_Days,Observations
+LRCX / AMAT,WFE_Equipment,-11.3226,0.0,True,0.8538,6.07,3987
+AVGO / MRVL,Foundry_Logic,-10.7927,0.0,True,0.5305,5.68,3987
+MU / WDC,Memory_Storage,-10.4428,0.0,True,0.6275,6.03,3987
+ASML / TSM,WFE_Equipment,-10.4407,0.0,True,0.5901,5.04,3987
+KLAC / ASML,WFE_Equipment,-10.3784,0.0,True,0.7193,5.98,3987
+MCHP / MPWR,Analog_Power_RF,-10.3154,0.0,True,0.6929,6.63,3987
+TXN / ADI,Analog_Power_RF,-10.1795,0.0,True,0.8132,5.95,3987
+NVDA / AMD,Foundry_Logic,-9.5858,0.0,True,0.553,6.29,3987
+NXPI / ON,Analog_Power_RF,-9.4613,0.0,True,0.7168,5.32,3987
+QCOM / INTC,Foundry_Logic,-8.9778,0.0,True,0.4679,7.26,3987
+TER / ENTG,WFE_Equipment,-8.7837,0.0,True,0.6615,7.22,3987
